@@ -2,25 +2,19 @@ version: "2"
 
 services:
   voting-app:
-    image: nicolaka/voting-app:latest
+    image: trainingteam/voting-app:latest
     ports:
       - "80"
     networks:
       voteapp:
-    labels:
-     interlock.hostname: "vote"
-     interlock.domain:   "example.org"
   result-app:
-    image: nicolaka/result-app:latest
+    image: trainingteam/result-app:latest
     ports:
       - "80"
     networks:
       voteapp:
-    labels:
-     interlock.hostname: "result"
-     interlock.domain:   "example.org"
   worker:
-    image: nicolaka/worker:latest
+    image: trainingteam/worker:latest
     networks:
       voteapp:
        aliases:
